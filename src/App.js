@@ -106,18 +106,18 @@ const HiraganaGame = () => {
 
   return (<div className="flex flex-col items-center">
     <h1 className="text-9xl mb-10">{currentHiragana}</h1>
-    <div className="bg-white p-6 rounded">
-      <label className='pr-2'>Romaji:</label>
+    <div className="bg-white p-6">
+      <label className='mr-2'>Romaji:</label>
       <input
         type="text"
-        className="border border-gray-300 rounded p-2 text-xl mb-4"
+        className="border border-gray-300 mr-2 p-2 text-xl mb-4"
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
-        placeholder="Enter pronunciation"
+        placeholder=""
         onKeyDown={handleKeyPress}
       />
       <button
-        className="bg-blue-500 text-white m-2 py-2 px-4 rounded text-xl hover:bg-blue-700"
+        className="bg-blue-500 text-white mr-2 py-2 px-4 text-xl hover:bg-blue-700"
         onClick={checkUserInput}
       >
         Check
@@ -129,7 +129,7 @@ const HiraganaGame = () => {
           <p className="text-red-500 text-2xl mt-4">❌ {lastHiragana} - {HIRAGANA[lastHiragana]} </p>
         ))
       }
-
+      <hr/>
       <p className="text-l mt-4">Correct: {correctCount}, Wrong: {wrongCount}, Accuracy: {calculateAccuracy()} </p>
       <h3 className="text-l mt-4">Errors:</h3>
       <ul>
