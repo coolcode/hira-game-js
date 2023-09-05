@@ -138,6 +138,14 @@ const HiraganaGame = () => {
         ))}
       </ul>
     </div>
+      <a
+          className="mt-4 link"
+          href="https://github.com/coolcode/hira-game-js"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source Code
+        </a>
   </div>
   )
 }
@@ -164,14 +172,7 @@ function App() {
         </div>
       </main>
       <footer class="bg-white shadow flex flex-col items-center justify-center">
-        <a
-          className=""
-          href="https://github.com/coolcode/hira-game-js"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Source Code
-        </a>
+       
       </footer>
     </div>
   )
