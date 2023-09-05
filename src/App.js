@@ -166,7 +166,7 @@ function App() {
       <footer class="bg-white shadow flex flex-col items-center justify-center">
         <a
           className=""
-          href="https://githum.com/coolcode/hira-game-js"
+          href="https://github.com/coolcode/hira-game-js"
           target="_blank"
           rel="noopener noreferrer"
         >
