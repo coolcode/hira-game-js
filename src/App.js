@@ -37,7 +37,7 @@ const HiraganaGame = () => {
 
   const getRandomHiragana = (errors) => {
     const errorKeys = Object.keys(errors)
-    const hiraganaCharacters = errorKeys.length > 0 && Math.floor(Math.random() * 100) < 70 ? errorKeys : Object.keys(HIRAGANA)
+    const hiraganaCharacters = errorKeys.length > 0 && Math.floor(Math.random() * 100) < 10 * errorKeys.length ? errorKeys : Object.keys(HIRAGANA)
     const randomIndex = Math.floor(Math.random() * hiraganaCharacters.length)
     return hiraganaCharacters[randomIndex]
   }
