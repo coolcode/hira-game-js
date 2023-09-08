@@ -31,13 +31,13 @@ const HiraganaGame = () => {
     updateHiraganaErrors(storedErrors)
 
     // Randomly select a Hiragana character
-    const randomHiragana = getRandomHiragana()
+    const randomHiragana = getRandomHiragana(storedErrors)
     setCurrentHiragana(randomHiragana)
   }, [])
 
-  const getRandomHiragana = () => {
-    const errors = Object.keys(hiraganaErrors)
-    const hiraganaCharacters = errors.length > 0 && Math.floor(Math.random() * 100) < 70 ? errors : Object.keys(HIRAGANA)
+  const getRandomHiragana = (errors) => {
+    const errorKeys = Object.keys(errors)
+    const hiraganaCharacters = errorKeys.length > 0 && Math.floor(Math.random() * 100) < 70 ? errorKeys : Object.keys(HIRAGANA)
     const randomIndex = Math.floor(Math.random() * hiraganaCharacters.length)
     return hiraganaCharacters[randomIndex]
   }
@@ -75,7 +75,7 @@ const HiraganaGame = () => {
     setUserInput('')
 
     // Move to the next Hiragana character
-    const randomHiragana = getRandomHiragana()
+    const randomHiragana = getRandomHiragana(hiraganaErrors)
     setCurrentHiragana(randomHiragana)
   }
 
@@ -140,7 +140,7 @@ const HiraganaGame = () => {
       }
       <hr />
       <p className="text-l mt-4">Correct: {correctCount}, Wrong: {wrongCount}, Accuracy: {calculateAccuracy()} </p>
-      {wrongCount>0 && (<h3 className="text-l mt-4 text-red-500">Errors:</h3>)}
+      {wrongCount > 0 && (<h3 className="text-l mt-4 text-red-500">Errors:</h3>)}
       <ul className="text-red-500">
         {Object.entries(hiraganaErrors).map(([hiragana, errorCount]) => (
           <li key={hiragana}>{hiragana}: {errorCount}</li>
