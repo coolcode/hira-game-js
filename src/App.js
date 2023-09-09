@@ -24,6 +24,7 @@ const HiraganaGame = () => {
   const [wrongCount, setWrongCount] = useState(0)
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false)
   const [hiraganaErrors, setHiraganaErrors] = useState({})
+  const [learnedSymbols, setLearnedSymbols] = useState(new Set())
 
   useEffect(() => {
     // Load errors from localStorage on component mount
@@ -57,6 +58,8 @@ const HiraganaGame = () => {
           setCorrectCount(correctCount + 1)
         }
       }
+      learnedSymbols.add(currentHiragana)
+      setLearnedSymbols(learnedSymbols) 
     } else {
       // User input is incorrect 
       setShowCorrectAnswer(false)
@@ -65,6 +68,10 @@ const HiraganaGame = () => {
       const updatedErrors = { ...hiraganaErrors }
       updatedErrors[currentHiragana] = (updatedErrors[currentHiragana] || 0) + 1
       updateHiraganaErrors(updatedErrors)
+      if(learnedSymbols.has(currentHiragana)){
+        learnedSymbols.delete(currentHiragana)
+        setLearnedSymbols(learnedSymbols) 
+      }
     }
 
     setLastHiragana(currentHiragana)
@@ -109,7 +116,12 @@ const HiraganaGame = () => {
   }
 
   const reset = () => {
+    setLastHiragana('')
     updateHiraganaErrors({})
+    setCorrectCount(0)
+    setWrongCount(0)
+    setLearnedSymbols(new Set())
+    setShowCorrectAnswer(false)
     setUserInput('')
   }
 
