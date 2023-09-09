@@ -22,14 +22,14 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
         // Randomly select a Symbol character
         const randomSymbol = getRandomSymbol(storedErrors)
         setCurrentSymbol(randomSymbol)
-         // eslint-disable-next-line 
+        // eslint-disable-next-line 
     }, [symbolType])
 
     const getRandomSymbol = (errors) => {
         const errorKeys = Object.keys(errors)
-        const hiraganaCharacters = errorKeys.length > 0 && Math.floor(Math.random() * 100) < 10 * errorKeys.length ? errorKeys : Object.keys(symbols)
-        const randomIndex = Math.floor(Math.random() * hiraganaCharacters.length)
-        return hiraganaCharacters[randomIndex]
+        const symbolKeys = errorKeys.length > 0 && Math.floor(Math.random() * 100) < 10 * errorKeys.length ? errorKeys : Object.keys(symbols)
+        const randomIndex = Math.floor(Math.random() * symbolKeys.length)
+        return symbolKeys[randomIndex]
     }
 
     const checkUserInput = () => {
@@ -47,8 +47,10 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
                     setCorrectCount(correctCount + 1)
                 }
             }
-            learnedSymbols.add(currentSymbol)
-            setLearnedSymbols(learnedSymbols)
+            if (!learnedSymbols.has(currentSymbol)) {
+                learnedSymbols.add(currentSymbol)
+                setLearnedSymbols(learnedSymbols)
+            }
         } else {
             // User input is incorrect 
             setShowCorrectAnswer(false)
@@ -75,9 +77,9 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
         setCurrentSymbol(randomSymbol)
     }
 
-    const playAudio = (hiragana) => {
+    const playAudio = (symbol) => {
         //play audio
-        const audio = new Audio(`audio/${symbols[hiragana]}.mp3`) // Get the audio file path based on the Symbol character
+        const audio = new Audio(`audio/${symbols[symbol]}.mp3`) // Get the audio file path based on the Symbol character
         audio.play()
     }
 
@@ -145,8 +147,8 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
             <p className="text-l mt-4">Correct: {correctCount}, Wrong: {wrongCount}, Accuracy: {calculateAccuracy()} </p>
             {wrongCount > 0 && (<h3 className="text-l mt-4 text-red-500">Errors:</h3>)}
             <ul className="text-red-500">
-                {Object.entries(failedSymbols).map(([hiragana, errorCount]) => (
-                    <li key={hiragana}><span>{hiragana}: {errorCount}</span><button className="px-2 text-green-500" onClick={() => playAudio(hiragana)} >🎵</button></li>
+                {Object.entries(failedSymbols).map(([symbol, errorCount]) => (
+                    <li key={symbol}><span>{symbol}: {errorCount}</span><button className="px-2 text-green-500" title={symbols[symbol]} onClick={() => playAudio(symbol)} >🎵</button></li>
                 ))}
             </ul>
 
