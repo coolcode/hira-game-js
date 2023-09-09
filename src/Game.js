@@ -22,6 +22,7 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
         // Randomly select a Symbol character
         const randomSymbol = getRandomSymbol(storedErrors)
         setCurrentSymbol(randomSymbol)
+         // eslint-disable-next-line 
     }, [symbolType])
 
     const getRandomSymbol = (errors) => {
