@@ -145,7 +145,7 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
             {wrongCount > 0 && (<h3 className="text-l mt-4 text-red-500">Errors:</h3>)}
             <ul className="text-red-500">
                 {Object.entries(failedSymbols).map(([hiragana, errorCount]) => (
-                    <li key={hiragana}><span>{hiragana}: {errorCount}</span> <a href="javascript:void(0);" onClick={()=>playAudio(hiragana)} className="text-green-500 px-2 py-3">🎵</a></li>
+                    <li key={hiragana}><span>{hiragana}: {errorCount}</span><button className="px-2 text-green-500" onClick={() => playAudio(hiragana)} >🎵</button></li>
                 ))}
             </ul>
 
