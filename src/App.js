@@ -46,19 +46,14 @@ function App() {
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">あいうえお</h1>
                 <h2 className="text-xl">Learning Game</h2>
               </a>
-              <div className="block">
-                <ul className="">
-                  {/* <li>
-                    <Link to="/" className="text-gray-900 hover:text-blue-500 transition duration-300">Home</Link>
-                  </li> */}
-                  <li>
-                    <Link to="/hiragana" className="text-gray-900 hover:text-blue-500 transition duration-300">HIRAGANA</Link>
-                  </li>
-                  <li>
-                    <Link to="/katakana" className="text-gray-900 hover:text-blue-500 transition duration-300">KATAKANA</Link>
-                  </li>
-                </ul>
-              </div>
+              <ul className="block text-2xl">
+                <li>
+                  <Link to="/hiragana" className="text-gray-900 hover:text-green-500 transition duration-300">HIRAGANA</Link>
+                </li>
+                <li>
+                  <Link to="/katakana" className="text-gray-900 hover:text-green-500 transition duration-300">KATAKANA</Link>
+                </li>
+              </ul>
             </nav>
           </div>
         </header>

@@ -121,46 +121,53 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
     return (<div className="flex flex-col items-center">
         <h1 className="text-9xl mb-10">{currentSymbol}</h1>
         <div className="bg-white p-6">
-            <label className='mr-2'>Romaji:</label>
-            <input
-                type="text"
-                className="border border-gray-300 mr-2 p-2 text-xl mb-4"
-                value={userInput}
-                onChange={(e) => setUserInput(e.target.value)}
-                placeholder=""
-                onKeyDown={handleKeyPress}
-            />
-            <button
-                className="bg-green-500 text-white mr-2 py-2 px-4 text-xl hover:bg-green-700"
-                onClick={checkUserInput}
-            >
-                Check
-            </button>
-            {
-                lastSymbol && (showCorrectAnswer ? (
-                    <p className="text-green-500 text-2xl mt-4">✅ {lastSymbol} - {symbols[lastSymbol]} </p>
-                ) : (
-                    <p className="text-red-500 text-2xl mt-4">❌ {lastSymbol} - {symbols[lastSymbol]} </p>
-                ))
-            }
-            <hr />
-            <p className="text-l mt-4">Correct: {correctCount}, Wrong: {wrongCount}, Accuracy: {calculateAccuracy()} </p>
-            {wrongCount > 0 && (<h3 className="text-l mt-4 text-red-500">Errors:</h3>)}
-            <ul className="text-red-500 px-4">
-                {Object.entries(failedSymbols).map(([symbol, errorCount]) => (
-                    <li key={symbol}><span>{symbol}</span> <span className="text-green-300">{symbols[symbol]}</span> <span className="text-sm">x{errorCount}</span><button className="px-2 text-green-500" title={symbols[symbol]} onClick={() => playAudio(symbol)} >🎵</button></li>
-                ))}
-            </ul>
+            <div>
+                <label className='text-xl mr-2'>Romaji:</label>
+                <input
+                    type="text"
+                    className="w-2/5 border-b-2 mr-2 p-2 text-xl mb-4"
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    placeholder=""
+                    onKeyDown={handleKeyPress}
+                />
+                <button
+                    className="bg-green-500 text-white mr-2 py-2 px-4 text-xl hover:bg-green-700"
+                    onClick={checkUserInput}
+                >
+                    Check
+                </button>
+            </div>
+            <div>
+                {
+                    lastSymbol && (showCorrectAnswer ? (
+                        <p className="text-green-500 text-2xl mt-4">✅ {lastSymbol} - {symbols[lastSymbol]} </p>
+                    ) : (
+                        <p className="text-red-500 text-2xl mt-4">❌ {lastSymbol} - {symbols[lastSymbol]} </p>
+                    ))
+                }
 
-            <button
-                className="bg-amber-500 text-white mt-4 py-2 px-4 text-xl hover:bg-amber-700"
-                onClick={() => reset(true)}
-            >
-                Reset
-            </button>
+            </div>
+            <div>
+                <hr />
+                <p className="text-l mt-4">Correct: {correctCount}, Wrong: {wrongCount}, Accuracy: {calculateAccuracy()} </p>
+                {wrongCount > 0 && (<h3 className="text-l mt-4 text-red-500">Errors:</h3>)}
+                <ul className="text-red-500 px-4">
+                    {Object.entries(failedSymbols).map(([symbol, errorCount]) => (
+                        <li key={symbol}><span>{symbol}</span> <span className="text-green-300">{symbols[symbol]}</span> <span className="text-sm">x{errorCount}</span><button className="px-2 text-green-500" title={symbols[symbol]} onClick={() => playAudio(symbol)} >🎵</button></li>
+                    ))}
+                </ul>
+
+                <button
+                    className="bg-amber-500 text-white mt-4 py-2 px-4 text-xl hover:bg-amber-700"
+                    onClick={() => reset(true)}
+                >
+                    Reset
+                </button>
+            </div>
         </div>
         <a
-            className="mt-4 link"
+            className="mt-4 link hover:text-green-500"
             href="https://github.com/coolcode/hira-game-js"
             target="_blank"
             rel="noopener noreferrer"
