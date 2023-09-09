@@ -146,9 +146,9 @@ const Game = ({ symbols, symbolType = 'HIRAGANA' }) => {
             <hr />
             <p className="text-l mt-4">Correct: {correctCount}, Wrong: {wrongCount}, Accuracy: {calculateAccuracy()} </p>
             {wrongCount > 0 && (<h3 className="text-l mt-4 text-red-500">Errors:</h3>)}
-            <ul className="text-red-500">
+            <ul className="text-red-500 px-4">
                 {Object.entries(failedSymbols).map(([symbol, errorCount]) => (
-                    <li key={symbol}><span>{symbol}: {errorCount}</span><button className="px-2 text-green-500" title={symbols[symbol]} onClick={() => playAudio(symbol)} >🎵</button></li>
+                    <li key={symbol}><span>{symbol}</span> <span className="text-green-300">{symbols[symbol]}</span> <span className="text-sm">x{errorCount}</span><button className="px-2 text-green-500" title={symbols[symbol]} onClick={() => playAudio(symbol)} >🎵</button></li>
                 ))}
             </ul>
 
