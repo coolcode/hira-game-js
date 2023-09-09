@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Game from './Game'
 
 const HIRAGANA = {
@@ -38,14 +38,14 @@ function App() {
         <header className="bg-white shadow">
           <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-between">
-              <div className="flex-shrink-0">
+              <a className="flex-shrink-0" href="/">
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900 px-2">
                   /\_/\
                 </h1>
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">( o.o )</h1>
                 <h1 className="text-3xl font-bold tracking-tight text-gray-900">あいうえお</h1>
                 <h2 className="text-xl">Learning Game</h2>
-              </div>
+              </a>
               <div className="block">
                 <ul className="">
                   {/* <li>
