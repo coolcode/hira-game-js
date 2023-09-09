@@ -30,7 +30,6 @@ const KATAKANA = {
   'ン': 'n',
 }
 
-
 function App() {
   return (
     <Router>
@@ -38,12 +37,12 @@ function App() {
         <header className="bg-white shadow">
           <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
             <nav className="flex items-center justify-between">
-              <a className="flex-shrink-0" href="/">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900 px-2">
+              <a className="flex-shrink-0 hover:text-green-500" href="/">
+                <h1 className="text-3xl font-bold tracking-tight px-2">
                   /\_/\
                 </h1>
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">( o.o )</h1>
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900">あいうえお</h1>
+                <h1 className="text-3xl font-bold tracking-tight">( o.o )</h1>
+                <h1 className="text-3xl font-bold tracking-tight">あいうえお</h1>
                 <h2 className="text-xl">Learning Game</h2>
               </a>
               <ul className="block text-2xl">
