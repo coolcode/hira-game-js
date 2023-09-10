@@ -45,5 +45,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ➡️ Python version: https://github.com/coolcode/hira-game-py
 
-➡️ Reactjs version: https://github.com/coolcode/hira-game-js
+➡️ Rust version: https://github.com/coolcode/hira-game-rs
 
