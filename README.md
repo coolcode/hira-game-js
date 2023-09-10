@@ -10,6 +10,10 @@ HIRAGANA/KATAKANA Learning Game
 -------------------------------
 ```
 
+## Demo
+
+https://hira-game.netlify.app
+
 ## Available Scripts
 
 In the project directory, you can run:
