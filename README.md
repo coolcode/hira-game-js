@@ -1,14 +1,13 @@
-# Hiragana Learning Game (React.js Version)
+# HIRAGANA/KATAKANA Learning Game (React.js Version)
 ```
-----------------------
-Hiragana Learning Game
+-------------------------------
+HIRAGANA/KATAKANA Learning Game
     平假名学习游戏
        /\_/\  
       ( o.o ) 
        > ^ <
      あいうえお
-----------------------
-💡 q: quit, w: wrong list
+-------------------------------
 ```
 
 ## Available Scripts
@@ -39,5 +38,8 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## More
-➡️ Rust version: https://github.com/coolcode/hira-game
+
 ➡️ Python version: https://github.com/coolcode/hira-game-py
+
+➡️ Reactjs version: https://github.com/coolcode/hira-game-js
+
